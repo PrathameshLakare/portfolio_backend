@@ -1,10 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 const { initializeDatabase } = require("./db/db.connect");
 const Project = require("./models/project.model");
 const Blog = require("./models/blog.model");
+
+app.use(express.json());
+app.use(cors());
 
 initializeDatabase();
 
@@ -15,6 +19,7 @@ app.post("/project", async (req, res) => {
 
     res.status(201).json({ project: savedProject });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Server error" });
   }
 });
