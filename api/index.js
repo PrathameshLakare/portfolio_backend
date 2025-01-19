@@ -39,7 +39,7 @@ app.post("/blog", async (req, res) => {
     const newBlog = new Blog(req.body);
     const savedBlog = await newBlog.save();
 
-    res.status(201).json({ Blog: savedBlog });
+    res.status(201).json({ blog: savedBlog });
   } catch (error) {
     res.status(500).json({ error: "Server error" });
   }
