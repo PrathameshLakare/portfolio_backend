@@ -55,6 +55,7 @@ app.get("/blog", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("server is listening on 3000");
+const port = 5000;
+app.listen(port, () => {
+  console.log(`server is listening on ${port}`);
 });
