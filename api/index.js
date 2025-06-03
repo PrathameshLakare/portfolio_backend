@@ -8,7 +8,7 @@ const Project = require("./models/project.model");
 const Blog = require("./models/blog.model");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 initializeDatabase();
 
