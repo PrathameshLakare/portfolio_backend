@@ -12,6 +12,10 @@ app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 initializeDatabase();
 
+app.get("/", (req, res) => {
+  res.send("Server is running.");
+});
+
 app.post("/project", async (req, res) => {
   try {
     const newProject = new Project(req.body);
